@@ -1,0 +1,105 @@
+---
+layout: default
+title: ScorpionYug
+description: >
+  Bug Bounty Hunter | Cybersecurity Enthusiast sharing writeups, tutorials,
+  and journey into ethical hacking.
+
+hero:
+  pretitle: Available for collaboration
+  title: Hi, I'm ScorpionYug
+  title_accent: Bug bounty hunter & security researcher
+  description: >
+    I hunt vulnerabilities, share cybersecurity knowledge, and help
+    companies secure their platforms. Explore my writeups, tutorials,
+    and journey into ethical hacking.
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-pretitle">
+          <span class="dot"></span>
+          <span>{{ page.hero.pretitle }}</span>
+        </div>
+        <h1 class="hero-title">
+          {{ page.hero.title }}
+          <span class="accent">{{ page.hero.title_accent }}</span>
+        </h1>
+        <p class="hero-description">{{ page.hero.description }}</p>
+        <div class="hero-buttons">
+          <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">
+            <span>Read the blog</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="{{ '/writeups/' | relative_url }}" class="btn btn-outline">
+            <span>View writeups</span>
+          </a>
+          <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline">
+            <span>Get in touch</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">{{ site.posts | size }}+</div>
+        <div class="stat-label">Articles</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Writeups</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">10+</div>
+        <div class="stat-label">Bugs Found</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Coffee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Latest posts</h2>
+        <p class="section-subtitle">Fresh insights on bug bounty, security, and tech</p>
+      </div>
+      <a href="{{ '/blog/' | relative_url }}" class="section-link">All posts →</a>
+    </div>
+
+    <div class="posts-grid">
+      {% for post in site.posts limit:6 %}
+      <article class="post-card">
+        {% if post.image %}
+        <a href="{{ post.url | relative_url }}" class="post-card-image">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="post-card-content">
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% for category in post.categories limit:1 %}
+            <span class="category-tag">{{ category }}</span>
+            {% endfor %}
+          </div>
+          <h3 class="post-card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          <div class="post-card-footer">
+            <span>{% include read-time.html content=post.content %}</span>
+            <span>{{ post.author | default: site.author.name }}</span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

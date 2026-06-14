@@ -1,0 +1,86 @@
+# ============================================
+# Jekyll Configuration - ScorpionYug Portfolio
+# ============================================
+
+title: "ScorpionYug"
+tagline: "Bug Bounty Hunter | Cybersecurity Enthusiast"
+description: >
+  Personal portfolio and blog of ScorpionYug — sharing bug bounty
+  writeups, cybersecurity tutorials, and journey into ethical hacking.
+email: "scorpionyug@protonmail.com"
+url: "https://scorpionyug.my.id"
+baseurl: ""
+repository: "scorpionyug/scorpionyug.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+paginate: 6
+paginate_path: "/page:num/"
+
+# Timezone
+timezone: "Asia/Kolkata"
+
+# Plugins (whitelisted on GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+
+# SEO & Social
+logo: /assets/images/logo.png
+author:
+  name: "ScorpionYug"
+  email: "scorpionyug@protonmail.com"
+  twitter: "scorpionyug"  # if applicable
+social:
+  name: "ScorpionYug"
+  links:
+    - https://github.com/scorpionyug
+    - https://twitter.com/scorpionyug
+    - https://hackerone.com/scorpionyug
+    - https://linkedin.com/in/scorpionyug
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .github
+  - admin/
+
+# Collections (for admin panel posts)
+collections:
+  drafts:
+    output: false
+    permalink: /drafts/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Include hidden files (admin)
+include:
+  - _pages

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /drafts/
+
+Sitemap: https://scorpionyug.my.id/sitemap.xml

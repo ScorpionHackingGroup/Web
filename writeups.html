@@ -1,0 +1,54 @@
+---
+layout: default
+title: Writeups
+permalink: /writeups/
+description: Bug bounty writeups, vulnerability research, and case studies
+---
+
+<section class="posts-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">Writeups</h1>
+        <p class="section-subtitle">Real vulnerabilities found, responsibly disclosed, and documented</p>
+      </div>
+    </div>
+
+    <div class="posts-grid">
+      {% assign writeups = site.posts | where_exp: "post", "post.categories contains 'writeup'" %}
+      {% for post in writeups %}
+      <article class="post-card">
+        {% if post.image %}
+        <a href="{{ post.url | relative_url }}" class="post-card-image">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="post-card-content">
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="category-tag">Writeup</span>
+            {% if post.severity %}
+            <span class="category-tag" style="background: var(--color-danger); color: white;">{{ post.severity }}</span>
+            {% endif %}
+          </div>
+          <h3 class="post-card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          <div class="post-card-footer">
+            <span>{% include read-time.html content=post.content %}</span>
+            <span>{{ post.author | default: site.author.name }}</span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+
+      {% if writeups.size == 0 %}
+      <div class="post-card" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+        <h3>Writeups coming soon</h3>
+        <p>I'm preparing detailed writeups of bugs I've found. Stay tuned!</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

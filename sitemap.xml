@@ -1,0 +1,7 @@
+---
+# Front matter required for Jekyll
+---
+{%- comment -%}
+  This is a placeholder. Actual sitemap.xml is auto-generated
+  by the jekyll-sitemap plugin.
+{%- endcomment -%}
