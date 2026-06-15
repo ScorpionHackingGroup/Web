@@ -33,15 +33,13 @@ plugins:
 logo: /assets/images/logo.png
 author:
   name: "ScorpionYug"
-  email: "scorpionyug@protonmail.com"
+  email: "scorpionhackinggroup@gmail.com"
   twitter: "scorpionyug"
 social:
   name: "ScorpionYug"
   links:
     - https://github.com/ScorpionHackingGroup
-    - https://twitter.com/scorpionyug
-    - https://hackerone.com/scorpionyug
-    - https://linkedin.com/in/scorpionyug
+    - https://t.me/scorpion_yug
 
 # Exclude from build
 exclude:
@@ -53,7 +51,6 @@ exclude:
   - .sass-cache
   - .jekyll-cache
   - .github
-  - admin/
   - _site
   - .git
   - .gitignore
