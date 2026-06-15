@@ -5,11 +5,11 @@
 
 backend:
   name: github
-  repo: scorpionyug/scorpionyug.github.io
+  repo: scorpionhackinggroup/Web
   branch: main
   # For OAuth: configure GitHub OAuth App
   # Or use Netlify Identity for simpler setup
-  base_url: https://api.netlify.com
+  base_url: https://scorpionyug.my.id
   auth_endpoint: auth
 
 # For local development
