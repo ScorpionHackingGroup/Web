@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:8080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:8080/" rel="alternate" type="text/html" /><updated>2026-06-15T14:13:50+05:30</updated><id>http://0.0.0.0:8080/feed.xml</id><title type="html">ScorpionYug</title><subtitle>Personal portfolio and blog of ScorpionYug — sharing bug bounty writeups, cybersecurity tutorials, and journey into ethical hacking.
+</subtitle><author><name>ScorpionYug</name><email>scorpionyug@protonmail.com</email></author><entry><title type="html">Welcome to ScorpionYug</title><link href="http://0.0.0.0:8080/2026/06/14/welcome/" rel="alternate" type="text/html" title="Welcome to ScorpionYug" /><published>2026-06-14T12:00:00+05:30</published><updated>2026-06-14T12:00:00+05:30</updated><id>http://0.0.0.0:8080/2026/06/14/welcome</id><content type="html" xml:base="http://0.0.0.0:8080/2026/06/14/welcome/"><![CDATA[<p>Hey there! 👋</p>
+
+<p>Welcome to <strong>ScorpionYug</strong> — my new home on the internet. This is where I’ll be sharing my journey in <strong>cybersecurity, bug bounty hunting, and ethical hacking</strong>.</p>
+
+<h2 id="what-youll-find-here">What you’ll find here</h2>
+
+<h3 id="-bug-bounty-writeups">🔍 Bug bounty writeups</h3>
+<p>Detailed case studies of vulnerabilities I’ve found — how I found them, what worked, and lessons learned. Every writeup follows responsible disclosure principles.</p>
+
+<h3 id="️-security-tutorials">🛠️ Security tutorials</h3>
+<p>Step-by-step guides on:</p>
+<ul>
+  <li>Recon methodology</li>
+  <li>Exploitation techniques</li>
+  <li>Tool usage</li>
+  <li>Defense strategies</li>
+</ul>
+
+<h3 id="-thoughts--reflections">💭 Thoughts &amp; reflections</h3>
+<p>My take on industry news, security research, and the broader cybersecurity community.</p>
+
+<h3 id="-resources">📚 Resources</h3>
+<p>Curated lists of tools, books, courses, and platforms I recommend.</p>
+
+<h2 id="why-this-blog">Why this blog?</h2>
+
+<p>The cybersecurity community is incredibly generous with knowledge. I’m here to <strong>pay it forward</strong> — share what I learn, help beginners, and document my journey publicly.</p>
+
+<blockquote>
+  <p><em>“The best way to learn is to teach.”</em></p>
+</blockquote>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>Expect regular content starting this month. Topics I’m working on:</p>
+
+<ol>
+  <li><strong>A multi-part bug bounty series</strong> on a recent finding</li>
+  <li><strong>Tool reviews</strong> — Burp Suite extensions, recon tools</li>
+  <li><strong>Recon methodology</strong> — my full pipeline</li>
+  <li><strong>Interview prep</strong> — for cybersecurity roles</li>
+</ol>
+
+<p>If you want to follow along:</p>
+<ul>
+  <li>📧 <a href="/feed.xml">Subscribe via RSS</a></li>
+  <li>🐦 <a href="https://twitter.com/scorpionyug">Follow on Twitter</a></li>
+  <li>💼 <a href="https://hackerone.com/scorpionyug">HackerOne profile</a></li>
+</ul>
+
+<p>Got a topic you want me to cover? <a href="/contact/">Drop me a line</a>.</p>
+
+<p>Until next time — <strong>stay curious, stay ethical</strong> 🛡️</p>
+
+<p>— ScorpionYug</p>]]></content><author><name>ScorpionYug</name></author><category term="meta" /><category term="announcement" /><summary type="html"><![CDATA[Hello world! This is my new cybersecurity blog — here's what to expect.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:8080/assets/images/posts/welcome.jpg" /><media:content medium="image" url="http://0.0.0.0:8080/assets/images/posts/welcome.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Recon Methodology: My Complete Pipeline</title><link href="http://0.0.0.0:8080/2026/06/12/recon-methodology/" rel="alternate" type="text/html" title="Recon Methodology: My Complete Pipeline" /><published>2026-06-12T10:30:00+05:30</published><updated>2026-06-12T10:30:00+05:30</updated><id>http://0.0.0.0:8080/2026/06/12/recon-methodology</id><content type="html" xml:base="http://0.0.0.0:8080/2026/06/12/recon-methodology/"><![CDATA[<p>Recon is the <strong>most important phase</strong> of bug bounty hunting. Spend 80% of your time here, and the rest of the testing becomes 10x easier.</p>
+
+<p>Here’s the complete pipeline I use for every target.</p>
+
+<h2 id="phase-1-subdomain-enumeration">Phase 1: Subdomain enumeration</h2>
+
+<p><strong>Goal:</strong> Find ALL attack surface.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Passive (no direct contact with target)</span>
+subfinder <span class="nt">-d</span> target.com <span class="nt">-o</span> subfinder.txt
+assetfinder <span class="nt">--subs-only</span> target.com <span class="o">&gt;</span> assetfinder.txt
+amass enum <span class="nt">-passive</span> <span class="nt">-d</span> target.com <span class="nt">-o</span> amass.txt
+
+<span class="c"># Active (sends DNS queries)</span>
+amass enum <span class="nt">-active</span> <span class="nt">-d</span> target.com
+
+<span class="c"># Certificate transparency</span>
+curl <span class="nt">-s</span> <span class="s2">"https://crt.sh/?q=%25.target.com&amp;output=json"</span> | jq <span class="nt">-r</span> <span class="s1">'.[].name_value'</span>
+
+<span class="c"># Merge &amp; dedupe</span>
+<span class="nb">cat</span> <span class="k">*</span>.txt | <span class="nb">sort</span> <span class="nt">-u</span> <span class="o">&gt;</span> all_subs.txt
+</code></pre></div></div>
+
+<p><strong>Tools:</strong> subfinder, amass, assetfinder, crt.sh</p>
+
+<h2 id="phase-2-live-host-probing">Phase 2: Live host probing</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check which subdomains are alive</span>
+<span class="nb">cat </span>all_subs.txt | httpx <span class="nt">-tech-detect</span> <span class="nt">-status-code</span> <span class="nt">-title</span> <span class="se">\</span>
+  <span class="nt">-o</span> live_hosts.txt
+
+<span class="c"># Extract just URLs</span>
+<span class="nb">cat </span>live_hosts.txt | <span class="nb">awk</span> <span class="s1">'{print $1}'</span> <span class="o">&gt;</span> live_urls.txt
+</code></pre></div></div>
+
+<h2 id="phase-3-url-enumeration">Phase 3: URL enumeration</h2>
+
+<p><strong>Wayback Machine, Common Crawl, and crawling:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Historical URLs</span>
+<span class="nb">cat </span>live_urls.txt | waybackurls <span class="o">&gt;</span> wayback.txt
+<span class="nb">cat </span>live_urls.txt | gau <span class="o">&gt;</span> gau.txt
+
+<span class="c"># Crawl current site</span>
+katana <span class="nt">-list</span> live_urls.txt <span class="nt">-depth</span> 3 <span class="nt">-o</span> crawled.txt
+
+<span class="c"># Merge</span>
+<span class="nb">cat </span>wayback.txt gau.txt crawled.txt | <span class="nb">sort</span> <span class="nt">-u</span> <span class="o">&gt;</span> all_urls.txt
+</code></pre></div></div>
+
+<h2 id="phase-4-hidden-parameters">Phase 4: Hidden parameters</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Arjun — parameter discovery</span>
+arjun <span class="nt">-u</span> https://target.com <span class="nt">-o</span> params.json
+
+<span class="c"># Manual testing</span>
+ffuf <span class="nt">-u</span> https://target.com/FUZZ <span class="nt">-w</span> /usr/share/wordlists/params.txt <span class="se">\</span>
+  <span class="nt">-mc</span> 200,301,302 <span class="nt">-X</span> POST <span class="nt">-d</span> <span class="s2">"FUZZ=test"</span>
+</code></pre></div></div>
+
+<h2 id="phase-5-vulnerability-scanning">Phase 5: Vulnerability scanning</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Nuclei — template-based</span>
+nuclei <span class="nt">-l</span> live_urls.txt <span class="nt">-t</span> cves/ <span class="nt">-severity</span> critical,high <span class="nt">-o</span> vulns.txt
+nuclei <span class="nt">-l</span> live_urls.txt <span class="nt">-t</span> vulnerabilities/ <span class="nt">-o</span> vuln2.txt
+nuclei <span class="nt">-l</span> live_urls.txt <span class="nt">-t</span> misconfiguration/ <span class="nt">-o</span> misconfig.txt
+nuclei <span class="nt">-l</span> live_urls.txt <span class="nt">-t</span> exposures/ <span class="nt">-o</span> exposures.txt
+
+<span class="c"># SQLi — manual + sqlmap</span>
+sqlmap <span class="nt">-u</span> <span class="s2">"https://target.com/page?id=1"</span> <span class="nt">--batch</span> <span class="nt">--dbs</span>
+
+<span class="c"># XSS — dalfox</span>
+<span class="nb">cat </span>all_urls.txt | <span class="nb">grep</span> <span class="s2">"="</span> | dalfox pipe
+</code></pre></div></div>
+
+<h2 id="phase-6-reporting">Phase 6: Reporting</h2>
+
+<p>After finding something, document EVERYTHING:</p>
+
+<ol>
+  <li><strong>Steps to reproduce</strong> (clear, copy-pasteable)</li>
+  <li><strong>Impact</strong> (what can attacker do?)</li>
+  <li><strong>Remediation</strong> (how to fix?)</li>
+  <li><strong>Screenshots / video</strong> (proof)</li>
+  <li><strong>CVSS score</strong> (severity rating)</li>
+</ol>
+
+<h2 id="my-time-distribution">My time distribution</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recon</td>
+      <td>60%</td>
+    </tr>
+    <tr>
+      <td>Testing</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td>Reporting</td>
+      <td>15%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tools-cheatsheet">Tools cheatsheet</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phase</th>
+      <th>Tools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Subdomain</td>
+      <td>subfinder, amass, assetfinder, crt.sh</td>
+    </tr>
+    <tr>
+      <td>Live probing</td>
+      <td>httpx, naabu</td>
+    </tr>
+    <tr>
+      <td>URL enum</td>
+      <td>waybackurls, gau, katana</td>
+    </tr>
+    <tr>
+      <td>Parameters</td>
+      <td>arjun, paramspider</td>
+    </tr>
+    <tr>
+      <td>Fuzzing</td>
+      <td>ffuf, dirsearch</td>
+    </tr>
+    <tr>
+      <td>Vuln scan</td>
+      <td>nuclei, sqlmap, dalfox</td>
+    </tr>
+    <tr>
+      <td>Analysis</td>
+      <td>Burp Suite, mitmproxy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pro-tips">Pro tips</h2>
+
+<ol>
+  <li><strong>Save everything</strong> — screenshots, commands, output</li>
+  <li><strong>Automate repetitive tasks</strong> — write a script</li>
+  <li><strong>Try variations</strong> — parameter, path, header-based</li>
+  <li><strong>Look for logic flaws</strong> — not just known patterns</li>
+  <li><strong>Read source code</strong> — JS files leak API endpoints</li>
+</ol>
+
+<hr />
+
+<p><strong>Happy hunting!</strong> 🎯 Found something cool? Tag me on <a href="https://twitter.com/scorpionyug">Twitter</a> — I love seeing creative finds.</p>
+
+<p>— ScorpionYug</p>]]></content><author><name>ScorpionYug</name></author><category term="bug-bounty" /><category term="recon" /><category term="tutorial" /><summary type="html"><![CDATA[A complete recon methodology I've developed over months of bug bounty hunting — from subdomain enumeration to finding hidden endpoints.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:8080/assets/images/posts/recon.jpg" /><media:content medium="image" url="http://0.0.0.0:8080/assets/images/posts/recon.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Top 10 Burp Suite Extensions I Actually Use</title><link href="http://0.0.0.0:8080/2026/06/10/burp-extensions/" rel="alternate" type="text/html" title="Top 10 Burp Suite Extensions I Actually Use" /><published>2026-06-10T14:00:00+05:30</published><updated>2026-06-10T14:00:00+05:30</updated><id>http://0.0.0.0:8080/2026/06/10/burp-extensions</id><content type="html" xml:base="http://0.0.0.0:8080/2026/06/10/burp-extensions/"><![CDATA[<p>Burp Suite is <strong>the</strong> tool for web app testing. But out of the box, it’s not enough. Here are the extensions I keep enabled on every engagement.</p>
+
+<h2 id="1-logger">1. Logger++</h2>
+
+<p><strong>What:</strong> Better logging than Burp’s built-in
+<strong>Why:</strong> Filter, search, and tag requests/responses
+<strong>Must-have:</strong> Find that one specific request you made 30 minutes ago</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Install: BApp Store → Logger++
+</code></pre></div></div>
+
+<h2 id="2-autorize">2. Autorize</h2>
+
+<p><strong>What:</strong> Automatic authorization testing
+<strong>Why:</strong> Test if endpoints properly check user permissions</p>
+
+<p>Use it for IDOR hunting on every authenticated session.</p>
+
+<h2 id="3-logger-enhanced">3. Logger++ Enhanced</h2>
+
+<p><strong>What:</strong> Granular control over logging
+<strong>Why:</strong> Only log what you need (saves disk)</p>
+
+<h2 id="4-param-miner">4. Param Miner</h2>
+
+<p><strong>What:</strong> Discover hidden parameters
+<strong>Why:</strong> Finds parameters that don’t show in normal crawling</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Configure: Min requests = 100, max params = 1000
+</code></pre></div></div>
+
+<h2 id="5-jwt-editor">5. JWT Editor</h2>
+
+<p><strong>What:</strong> Decode, edit, attack JWT tokens
+<strong>Why:</strong> Test JWT implementations for:</p>
+<ul>
+  <li>alg=none bypass</li>
+  <li>Weak secrets</li>
+  <li>Token confusion</li>
+</ul>
+
+<h2 id="6-hackvertor">6. Hackvertor</h2>
+
+<p><strong>What:</strong> Smart encoding/decoding
+<strong>Why:</strong> Auto-detect encoding for XSS payloads</p>
+
+<h2 id="7-turbo-intruder">7. Turbo Intruder</h2>
+
+<p><strong>What:</strong> Fast custom attacks
+<strong>Why:</strong> Race conditions, brute force, custom fuzzing</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">queueRequests</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">wordlists</span><span class="p">):</span>
+    <span class="n">engine</span> <span class="o">=</span> <span class="nc">RequestEngine</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="n">target</span><span class="p">.</span><span class="n">endpoint</span><span class="p">,</span>
+                           <span class="n">concurrentConnections</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                           <span class="n">requestsPerConnection</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                           <span class="n">pipeline</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">engine</span><span class="p">.</span><span class="nf">queue</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">req</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">engine</span><span class="p">.</span><span class="nf">openGate</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="8-collaborator-everywhere">8. Collaborator Everywhere</h2>
+
+<p><strong>What:</strong> Out-of-band detection
+<strong>Why:</strong> Find blind XSS, SSRF, XXE that callback to your server</p>
+
+<h2 id="9-inql-scanner">9. InQL Scanner</h2>
+
+<p><strong>What:</strong> GraphQL testing
+<strong>Why:</strong> Modern apps use GraphQL — find introspection, batching attacks</p>
+
+<h2 id="10-dom-invader">10. DOM Invader</h2>
+
+<p><strong>What:</strong> DOM XSS testing
+<strong>Why:</strong> Built into Burp, catches DOM-based vulns others miss</p>
+
+<h2 id="bonus-auto-highlight">Bonus: Auto-highlight</h2>
+
+<p><strong>What:</strong> Color-code interesting stuff
+<strong>Why:</strong> Spot API keys, tokens, error messages instantly</p>
+
+<hr />
+
+<h2 id="my-burp-workflow">My Burp workflow</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Set scope to target.*
+2. Browse the app normally (Burp logs)
+3. Run Logger++ analysis
+4. Autorize for IDORs
+5. Param Miner for hidden params
+6. Turbo Intruder for rate-limited testing
+7. Hackvertor + DOM Invader for XSS
+8. JWT Editor for token attacks
+</code></pre></div></div>
+
+<p><strong>Setup time:</strong> ~10 minutes for fresh engagements.</p>
+
+<h2 id="where-to-find-extensions">Where to find extensions</h2>
+
+<ul>
+  <li><strong>BApp Store</strong> (built-in) — most reliable</li>
+  <li><strong>GitHub</strong> — some community gems</li>
+  <li><strong>Burp App Store</strong> (new) — better discovery</li>
+</ul>
+
+<hr />
+
+<p><strong>What’s your favorite extension?</strong> Let me know on <a href="https://twitter.com/scorpionyug">Twitter</a> — always looking for new tools to add to my arsenal.</p>
+
+<p>— ScorpionYug</p>]]></content><author><name>ScorpionYug</name></author><category term="tools" /><category term="burp-suite" /><category term="tutorial" /><summary type="html"><![CDATA[After hundreds of hours in Burp Suite, here are the extensions that genuinely save me time and find real bugs.]]></summary></entry></feed>
