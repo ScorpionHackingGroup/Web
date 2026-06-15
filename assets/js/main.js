@@ -62,4 +62,3 @@ window.addEventListener('scroll', () => {
 
 console.log('%c⬢ ScorpionYug', 'color: #b8472a; font-size: 24px; font-weight: bold;');
 console.log('%cHey there, fellow hacker 👋', 'color: #6b7280; font-size: 14px;');
-console.log('%cLike the site? Check out the source: https://github.com/scorpionyug/scorpionyug.github.io', 'color: #3b82f6; font-size: 12px;');

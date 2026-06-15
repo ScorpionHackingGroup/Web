@@ -7,10 +7,10 @@ tagline: "Bug Bounty Hunter | Cybersecurity Enthusiast"
 description: >
   Personal portfolio and blog of ScorpionYug — sharing bug bounty
   writeups, cybersecurity tutorials, and journey into ethical hacking.
-email: "scorpionyug@protonmail.com"
+email: "scorpionhackinggroup@gmail.com"
+repository: "ScorpionHackingGroup/Web"
 url: "https://scorpionyug.my.id"
 baseurl: ""
-repository: "scorpionyug/scorpionyug.github.io"
 
 # Build settings
 markdown: kramdown
@@ -34,15 +34,12 @@ plugins:
 logo: /assets/images/logo.png
 author:
   name: "ScorpionYug"
-  email: "scorpionyug@protonmail.com"
+  email: "scorpionhackinggrouo@gmail.com"
   twitter: "scorpionyug"  # if applicable
 social:
   name: "ScorpionYug"
   links:
-    - https://github.com/scorpionyug
-    - https://twitter.com/scorpionyug
-    - https://hackerone.com/scorpionyug
-    - https://linkedin.com/in/scorpionyug
+    - https://github.com/scorpionhackinggroup
 
 # Exclude from build
 exclude:
