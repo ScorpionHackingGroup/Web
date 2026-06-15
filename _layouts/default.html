@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {%- comment -%} SEO tags {%- endcomment -%}
+  {%- seo title=false -%}
+
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+
+  {%- comment -%} Favicon {%- endcomment -%}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+
+  {%- comment -%} Fonts {%- endcomment -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  {%- comment -%} Stylesheets {%- endcomment -%}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  {%- comment -%} Feed {%- endcomment -%}
+  {% feed_meta %}
+  {%- comment -%} Sitemap {%- endcomment -%}
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ '/sitemap.xml' | relative_url }}">
+
+  {%- comment -%} Custom head from page {%- endcomment -%}
+  {% if page.extra_head %}{{ page.extra_head }}{% endif %}
+</head>
+<body class="layout--{{ page.layout | default: 'default' }}">
+
+  {%- include header.html -%}
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  {%- include footer.html -%}
+
+  {%- comment -%} Scripts {%- endcomment -%}
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

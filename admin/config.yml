@@ -1,0 +1,119 @@
+# ============================================
+# Decap CMS Configuration for ScorpionYug
+# Backend: GitHub (commit-based workflow)
+# ============================================
+
+backend:
+  name: github
+  repo: scorpionyug/scorpionyug.github.io
+  branch: main
+  # For OAuth: configure GitHub OAuth App
+  # Or use Netlify Identity for simpler setup
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# For local development
+# Run: npx decap-server
+# local_backend: true
+
+# Media uploads
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# Site URL for preview
+site_url: https://scorpionyug.my.id
+display_url: https://scorpionyug.my.id
+logo_url: /assets/images/favicon.svg
+
+# Search & i18n
+search: true
+locale: en
+
+# ============================================
+# Collections
+# ============================================
+
+collections:
+
+  # Blog posts & writeups
+  - name: "posts"
+    label: "Posts & Writeups"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} - {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: ["date", "title", "draft"]
+    view_groups:
+      - label: "Year"
+        field: "date"
+        pattern: "\\d{4}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm:ss Z"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Author", name: "author", widget: "string", default: "ScorpionYug"}
+      - {label: "Categories", name: "categories", widget: "select", multiple: true, min: 1, options: ["bug-bounty", "tutorial", "writeup", "tools", "recon", "osint", "meta", "announcement", "ctf", "interview"]}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Hero Image", name: "image", widget: "image", required: false, hint: "Recommended: 1200x630px"}
+      - {label: "Severity (writeups only)", name: "severity", widget: "select", required: false, options: ["Critical", "High", "Medium", "Low", "Informational"]}
+      - {label: "Bounty Earned (USD)", name: "bounty", widget: "number", required: false, value_type: "int", min: 0}
+      - {label: "Company / Target", name: "company", widget: "string", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
+      - {label: "Body", name: "body", widget: "markdown", hint: "Markdown supported."}
+
+  # Static pages
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: ""
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Permalink", name: "permalink", widget: "string", hint: "e.g. /about/"}
+      - {label: "Layout", name: "layout", widget: "select", options: ["page", "post"], default: "page"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # Site settings
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    files:
+      - name: "site_config"
+        label: "Configuration"
+        file: "_data/settings.yml"
+        format: "yaml"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - {label: "GitHub", name: "github", widget: "string", required: false}
+          - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+          - {label: "HackerOne", name: "hackerone", widget: "string", required: false}
+          - {label: "Brand Color", name: "accent_color", widget: "color", default: "#b8472a"}
+
+# ============================================
+# Settings
+# ============================================
+
+settings:
+  - name: "general"
+    label: "General"
+    fields:
+      - {label: "Site URL", name: "site_url", widget: "string"}
+      - {label: "Display URL", name: "display_url", widget: "string"}
+      - {label: "Logo", name: "logo_url", widget: "image", allow_multiple: false}
+      - {label: "Default Author", name: "default_author", widget: "string", default: "ScorpionYug"}

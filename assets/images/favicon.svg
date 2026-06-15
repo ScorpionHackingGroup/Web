@@ -1,0 +1,8 @@
+---
+# Front matter
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#b8472a"/>
+  <path d="M32 12L18 26v22h28V26L32 12zm0 8l8 8v16H24V28l8-8z" fill="#fff7ed"/>
+</svg>

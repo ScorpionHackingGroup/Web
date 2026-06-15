@@ -1,0 +1,7 @@
+{%- comment -%}
+  Calculate reading time
+  Usage: {% include read-time.html content=post.content %}
+{%- endcomment -%}
+{%- assign words = include.content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | at_least: 1 -%}
+{{ minutes }} min read
