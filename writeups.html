@@ -2,21 +2,21 @@
 layout: default
 title: Writeups
 permalink: /writeups/
-description: Bug bounty writeups, vulnerability research, and case studies
+description: Security research, bug bounty writeups, and vulnerability disclosures
 ---
 
 <section class="posts-section">
   <div class="container">
     <div class="section-header">
       <div>
-        <h1 class="section-title">Writeups</h1>
-        <p class="section-subtitle">Real vulnerabilities found, responsibly disclosed, and documented</p>
+        <h1 class="section-title">Writeups & Research</h1>
+        <p class="section-subtitle">In-depth security research, bug bounty writeups, and vulnerability analysis</p>
       </div>
     </div>
 
     <div class="posts-grid">
-      {% assign writeups = site.posts | where_exp: "post", "post.categories contains 'writeup'" %}
-      {% for post in writeups %}
+      {% for post in site.posts %}
+      {% if post.categories contains 'bug-bounty' or post.categories contains 'writeup' or post.categories contains 'security' %}
       <article class="post-card">
         {% if post.image %}
         <a href="{{ post.url | relative_url }}" class="post-card-image">
@@ -26,10 +26,9 @@ description: Bug bounty writeups, vulnerability research, and case studies
         <div class="post-card-content">
           <div class="post-card-meta">
             <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-            <span class="category-tag">Writeup</span>
-            {% if post.severity %}
-            <span class="category-tag" style="background: var(--color-danger); color: white;">{{ post.severity }}</span>
-            {% endif %}
+            {% for category in post.categories limit:1 %}
+            <span class="category-tag">{{ category }}</span>
+            {% endfor %}
           </div>
           <h3 class="post-card-title">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -41,14 +40,14 @@ description: Bug bounty writeups, vulnerability research, and case studies
           </div>
         </div>
       </article>
-      {% endfor %}
-
-      {% if writeups.size == 0 %}
-      <div class="post-card" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
-        <h3>Writeups coming soon</h3>
-        <p>I'm preparing detailed writeups of bugs I've found. Stay tuned!</p>
-      </div>
       {% endif %}
+      {% endfor %}
     </div>
+
+    {% if site.posts | size == 0 %}
+    <div style="text-align: center; padding: 4rem 0;">
+      <p style="color: var(--color-text-muted); font-size: 1.1rem;">Coming soon... Stay tuned for bug bounty writeups and security research! 🔍</p>
+    </div>
+    {% endif %}
   </div>
 </section>

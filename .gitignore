@@ -1,0 +1,30 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+_site
+.sass-cache/
+
+# Dependencies
+bundle/
+Gemfile.lock
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local

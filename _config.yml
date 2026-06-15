@@ -7,7 +7,7 @@ tagline: "Bug Bounty Hunter | Cybersecurity Enthusiast"
 description: >
   Personal portfolio and blog of ScorpionYug — sharing bug bounty
   writeups, cybersecurity tutorials, and journey into ethical hacking.
-email: "scorpionhackinggroup@gmail.com"
+email: "scorpionyug@protonmail.com"
 repository: "ScorpionHackingGroup/Web"
 url: "https://scorpionyug.my.id"
 baseurl: ""
@@ -28,18 +28,20 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-archives
 
 # SEO & Social
 logo: /assets/images/logo.png
 author:
   name: "ScorpionYug"
-  email: "scorpionhackinggrouo@gmail.com"
-  twitter: "scorpionyug"  # if applicable
+  email: "scorpionyug@protonmail.com"
+  twitter: "scorpionyug"
 social:
   name: "ScorpionYug"
   links:
-    - https://github.com/scorpionhackinggroup
+    - https://github.com/ScorpionHackingGroup
+    - https://twitter.com/scorpionyug
+    - https://hackerone.com/scorpionyug
+    - https://linkedin.com/in/scorpionyug
 
 # Exclude from build
 exclude:
@@ -52,6 +54,10 @@ exclude:
   - .jekyll-cache
   - .github
   - admin/
+  - _site
+  - .git
+  - .gitignore
+  - .nojekyll
 
 # Collections (for admin panel posts)
 collections:

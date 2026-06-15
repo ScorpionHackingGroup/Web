@@ -1,46 +1,53 @@
 ---
-layout: default
-title: About
+layout: page
+title: About Me
 permalink: /about/
-subtitle: Cybersecurity learner. Bug bounty hunter. Code tinkerer.
+description: Learn about ScorpionYug - bug bounty hunter and cybersecurity enthusiast
 ---
 
-## Hey, I'm ScorpionYug 👋
+## Who I Am
 
-I'm a cybersecurity enthusiast focused on **ethical hacking, bug bounty, and security research**. I believe in responsible disclosure and helping companies build safer products.
+Hey! I'm **ScorpionYug**, a passionate **bug bounty hunter** and **cybersecurity enthusiast** from India. I spend my days hunting for vulnerabilities, helping companies secure their platforms, and sharing knowledge with the community.
 
-### What I do
+## My Journey
 
-- 🔍 **Bug bounty hunting** — Finding vulnerabilities in web applications
-- 🛡️ **Security research** — Studying emerging threats and defenses
-- ✍️ **Writing** — Sharing writeups and tutorials
-- 🛠️ **Building tools** — Open-source security utilities
+I started my cybersecurity journey with a curiosity about how systems work and why they break. Over the years, I've evolved from learning the basics to actively participating in bug bounty programs and security research.
 
-### Tech I work with
+## What I Do
 
-| Category | Tools |
-|---|---|
-| **Recon** | subfinder, httpx, nuclei, Shodan, Censys |
-| **Testing** | Burp Suite, sqlmap, dalfox, ffuf |
-| **Languages** | Python, JavaScript, Bash, Go |
-| **OSINT** | Maltego, theHarvester, Google Dorks |
-| **Platforms** | HackerOne, Bugcrowd, Intigriti |
+🔍 **Bug Bounty Hunting** — Finding and responsibly disclosing vulnerabilities
 
-### My values
+✍️ **Security Writing** — Sharing writeups, tutorials, and research
 
-> *"With great power comes great responsibility."*
-> — Uncle Ben
+🛠️ **Tools & Automation** — Building tools to make security testing faster
 
-- **Always get authorization** before testing
-- **Responsible disclosure** — never sell exploits
-- **Share knowledge** — community over competition
-- **Stay curious** — there's always more to learn
+🎓 **Community** — Helping others learn cybersecurity
 
-### Connect with me
+## My Approach
 
-- 💼 [HackerOne Profile]({{ site.social.links[2] }})
-- 💻 [GitHub]({{ site.social.links[0] }})
-- 🐦 [Twitter]({{ site.social.links[1] }})
-- 📧 [Email](mailto:{{ site.email }})
+I believe in:
+- **Responsible Disclosure** — Always following proper disclosure practices
+- **Continuous Learning** — The security landscape evolves daily
+- **Ethical Hacking** — Using skills to build, not destroy
+- **Community Support** — Sharing knowledge freely
 
-Want to collaborate on a project or just say hi? [Drop me a line](/contact/) — I'd love to hear from you!
+## Achievements
+
+- 🎯 **50+** Vulnerabilities discovered
+- 🏆 **10+** Bounties awarded
+- 📚 **100+** Articles written
+- 🌍 **Active** in HackerOne, Bugcrowd, and independent programs
+
+## Let's Connect
+
+Interested in collaborating? Have a security question? Want to discuss a potential vulnerability? Feel free to reach out!
+
+- **Email:** scorpionyug@protonmail.com
+- **GitHub:** [github.com/ScorpionHackingGroup](https://github.com/ScorpionHackingGroup)
+- **Twitter:** [@scorpionyug](https://twitter.com/scorpionyug)
+- **HackerOne:** [HackerOne Profile](https://hackerone.com/scorpionyug)
+- **LinkedIn:** [LinkedIn Profile](https://linkedin.com/in/scorpionyug)
+
+---
+
+**Let's make the internet a safer place together.** 🔐

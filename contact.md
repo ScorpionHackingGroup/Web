@@ -1,50 +1,55 @@
 ---
-layout: default
-title: Contact
+layout: page
+title: Get In Touch
 permalink: /contact/
-subtitle: Let's connect — collaboration, questions, or just a friendly chat
+description: Contact ScorpionYug for collaboration, security consultation, or just to say hi
 ---
 
-## Get in touch 💬
+## Let's Connect!
 
-I'm always open to interesting conversations. Whether you have a project idea, want to collaborate, or just want to say hi — reach out!
+Got a security question? Found a vulnerability? Want to collaborate? I'm always open to conversations about cybersecurity, bug bounty hunting, and security research.
 
-### 📧 Email
-The best way to reach me: **[{{ site.email }}](mailto:{{ site.email }})**
+## Contact Methods
 
-Response time: Usually within 24-48 hours.
+### Email
+**📧 [scorpionyug@protonmail.com](mailto:scorpionyug@protonmail.com)**
 
-### 💼 Professional
-- **HackerOne:** [{{ site.social.links[2] }}]({{ site.social.links[2] }}) — For security disclosures
-- **LinkedIn:** [{{ site.social.links[3] }}]({{ site.social.links[3] }}) — For professional inquiries
+Fastest way to reach me for detailed discussions.
 
-### 🌐 Social
-- **GitHub:** [@scorpionyug](https://github.com/scorpionyug)
-- **Twitter:** [@scorpionyug](https://twitter.com/scorpionyug)
+### Social Media
 
-### 🐛 Security disclosure
+**🐦 Twitter** — [@scorpionyug](https://twitter.com/scorpionyug)  
+Day-to-day security updates and thoughts
 
-Found a vulnerability in this site? Please **do NOT** open a public issue. Instead:
-1. Email me at [{{ site.email }}](mailto:{{ site.email }})
-2. Use subject: `Security Disclosure`
-3. Include steps to reproduce
+**💻 GitHub** — [ScorpionHackingGroup](https://github.com/ScorpionHackingGroup)  
+Open-source projects and tools
 
-I'll acknowledge within 48 hours and work on a fix.
+**🏆 HackerOne** — [scorpionyug](https://hackerone.com/scorpionyug)  
+Bug bounty profile and disclosed vulnerabilities
 
-### 🤝 Collaboration
+**💼 LinkedIn** — [scorpionyug](https://linkedin.com/in/scorpionyug)  
+Professional background and connections
 
-Open to:
-- Open-source security tool development
-- Bug bounty collaborations (with proper authorization)
-- Guest blog posts on cybersecurity
-- Mentorship for beginners in security research
+## What I'm Looking For
 
-Not interested in:
-- Black-hat / illegal hacking discussions
-- Doxxing or harassment
-- Crypto scams
-- MLM / pyramid schemes
+✅ **Bug Bounty Collaboration** — Private program invitations, scope expansion opportunities
+
+✅ **Security Consulting** — Help securing your applications
+
+✅ **Penetration Testing** — Full scope assessments
+
+✅ **Speaking Engagements** — Security conferences and meetups
+
+✅ **Content Creation** — Sponsored security tutorials and workshops
+
+✅ **Community Help** — Mentoring aspiring bug bounty hunters
+
+## Response Time
+
+- **Email:** 24-48 hours
+- **Twitter:** Same day
+- **GitHub:** Depends on issue complexity
 
 ---
 
-> **Note:** I read every message. If I don't reply, I'm probably just busy — feel free to follow up after a week. 💙
+**Ready to talk security? Let's go! 🚀**
