@@ -5,7 +5,6 @@ date: 2026-06-12 10:30:00 +0530
 categories: [bug-bounty, recon, tutorial]
 description: "A complete recon methodology I've developed over months of bug bounty hunting — from subdomain enumeration to finding hidden endpoints."
 author: "ScorpionYug"
-image: /assets/images/posts/recon.jpg
 ---
 
 Recon is the **most important phase** of bug bounty hunting. Spend 80% of your time here, and the rest of the testing becomes 10x easier.
